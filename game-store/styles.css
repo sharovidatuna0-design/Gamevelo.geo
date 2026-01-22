@@ -201,12 +201,12 @@ body {
 
 .hero-logo {
     position: absolute;
-    width: 600px;
-    height: 600px;
-    right: -150px;
+    width: 500px;
+    height: 650px;
+    right: -100px;
     top: 50%;
     transform: translateY(-50%);
-    opacity: 0.15;
+    opacity: 0.2;
     z-index: 1;
     animation: floatLogo 6s ease-in-out infinite;
 }
