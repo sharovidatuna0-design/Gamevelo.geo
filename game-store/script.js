@@ -193,7 +193,31 @@ document.addEventListener('DOMContentLoaded', function() {
 // Load Games
 function loadGames() {
     displayFeaturedGames();
+    displayFlashDeals();
     displayAllGames();
+}
+
+// Display Flash Deals
+function displayFlashDeals() {
+    const dealsGames = gamesData.filter(g => g.discount >= 25).sort((a, b) => b.discount - a.discount);
+    const carouselDiv = document.getElementById('flashDealsCarousel');
+    
+    carouselDiv.innerHTML = dealsGames.map(game => `
+        <div class="flash-deal-card">
+            <div class="flash-deal-image">
+                <img src="${game.image}" alt="${game.title}" onerror="this.src='https://via.placeholder.com/280x180?text=${game.title}'">
+            </div>
+            <div class="flash-deal-content">
+                <div class="flash-deal-title">${game.title}</div>
+                <div class="flash-deal-price-info">
+                    <span class="flash-deal-current">${game.price}ლ</span>
+                    <span class="flash-deal-original">${game.originalPrice}ლ</span>
+                    <span class="flash-deal-discount">-${game.discount}%</span>
+                </div>
+                <button class="flash-deal-button" onclick="addToCart(${game.id})">Add to Cart</button>
+            </div>
+        </div>
+    `).join('');
 }
 
 // Display Featured Games
@@ -215,7 +239,7 @@ function displayAllGames(filter = 'all') {
 // Create Game Card HTML
 function createGameCardHTML(game) {
     const priceDisplay = game.originalPrice ? 
-        `<div class="game-price">${game.price}ლ <span class="original-price">${game.originalPrice}ლ</span> <span class="discount-badge">-${game.discount}%</span></div>` :
+        `<div class="game-price">${game.price}ლ <span class="original-price">${game.originalPrice}ლ</span> <span class="discount-badge ${getBadgeClass(game)}">${getBadgeText(game)}</span></div>` :
         `<div class="game-price">${game.price === 0 ? 'FREE' : game.price + 'ლ'}</div>`;
     
     return `
@@ -235,6 +259,32 @@ function createGameCardHTML(game) {
             </div>
         </div>
     `;
+}
+
+// Get badge text based on discount percentage
+function getBadgeText(game) {
+    if (game.discount >= 40) {
+        return '🔥 FLASH SALE';
+    } else if (game.discount >= 30) {
+        return '⭐ LIMITED';
+    } else if (game.rating === '★★★★★' && game.discount >= 25) {
+        return '🏆 BESTSELLER';
+    } else {
+        return `-${game.discount}%`;
+    }
+}
+
+// Get badge CSS class based on discount type
+function getBadgeClass(game) {
+    if (game.discount >= 40) {
+        return 'badge-flash-sale';
+    } else if (game.discount >= 30) {
+        return 'badge-limited-offer';
+    } else if (game.rating === '★★★★★' && game.discount >= 25) {
+        return 'badge-bestseller';
+    } else {
+        return '';
+    }
 }
 
 // Filter Games
@@ -416,3 +466,142 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// AI Assistant Function
+function sendAIMessage() {
+    const inputField = document.getElementById('aiInput');
+    const messagesContainer = document.getElementById('aiMessages');
+    const userMessage = inputField.value.trim();
+    
+    if (!userMessage) return;
+    
+    // Display user message
+    const userMsgDiv = document.createElement('div');
+    userMsgDiv.className = 'ai-message user-message';
+    userMsgDiv.innerHTML = '<p>' + escapeHtml(userMessage) + '</p><span class="message-icon">👤</span>';
+    messagesContainer.appendChild(userMsgDiv);
+    
+    // Clear input
+    inputField.value = '';
+    
+    // Scroll to bottom
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    
+    // Generate AI response
+    setTimeout(() => {
+        let aiResponse = generateAIResponse(userMessage.toLowerCase());
+        
+        const botMsgDiv = document.createElement('div');
+        botMsgDiv.className = 'ai-message bot-message';
+        botMsgDiv.innerHTML = '<span class="message-icon">🤖</span><p>' + aiResponse + '</p>';
+        messagesContainer.appendChild(botMsgDiv);
+        
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 600);
+}
+
+function generateAIResponse(message) {
+    // Game recommendations with prices
+    if (message.includes('recommend') || message.includes('suggest') || message.includes('best game')) {
+        const randomGames = gamesData.sort(() => Math.random() - 0.5).slice(0, 3);
+        const gamesList = randomGames.map(g => `${g.title} (${g.price}ლ)`).join(', ');
+        return "🎮 I'd love to recommend: " + gamesList + ". These are all amazing games with excellent reviews! Would you like more info about any of them?";
+    }
+    
+    // Discount/pricing questions
+    if (message.includes('discount') || message.includes('price') || message.includes('sale') || message.includes('cheaper')) {
+        const discountedGames = gamesData.filter(g => g.discount >= 30).sort((a, b) => b.discount - a.discount).slice(0, 5);
+        const dealsText = discountedGames.map(g => `${g.title}: ${g.price}ლ (was ${g.originalPrice}ლ, -${g.discount}%)`).join(' | ');
+        return "💰 Great timing! We have fantastic deals right now:\n" + dealsText + "\n\nAll these games are 30%+ off. Check them out!";
+    }
+    
+    // Cheapest games
+    if (message.includes('cheap') || message.includes('budget') || message.includes('affordable')) {
+        const cheapest = gamesData.sort((a, b) => a.price - b.price).slice(0, 4);
+        const cheapList = cheapest.map(g => `${g.title}: only ${g.price}ლ`).join(' | ');
+        return "💸 Looking for budget-friendly options? Here are our most affordable games:\n" + cheapList + "\n\nGreat value for money!";
+    }
+    
+    // Most expensive
+    if (message.includes('expensive') || message.includes('premium') || message.includes('best quality')) {
+        const premium = gamesData.sort((a, b) => b.price - a.price).slice(0, 3);
+        const premiumList = premium.map(g => `${g.title}: ${g.price}ლ`).join(' | ');
+        return "👑 Our premium collection includes:\n" + premiumList + "\n\nThese are the finest games available!";
+    }
+    
+    // Account/support questions
+    if (message.includes('account') || message.includes('support') || message.includes('help') || message.includes('problem')) {
+        return "📧 Need support? We're here to help! Message us on Instagram @game.velo and our team will assist you within 24 hours. What's the issue?";
+    }
+    
+    // Search functionality
+    if (message.includes('find') || message.includes('search') || message.includes('looking for')) {
+        return "🔍 I can definitely help you find the perfect game! What are you looking for? Tell me:\n• A specific game\n• A genre (adventure, action, rpg)\n• A price range\n• A game type\n\nJust ask!";
+    }
+    
+    // Category questions with prices
+    if (message.includes('adventure')) {
+        const adventureGames = gamesData.filter(g => g.category === 'adventure').slice(0, 4);
+        const adventureList = adventureGames.map(g => `${g.title} (${g.price}ლ)`).join(', ');
+        return "🗺️ Adventure Games we have:\n" + adventureList + "\n\nAll amazing titles! Would you like to add any to your cart?";
+    }
+    
+    if (message.includes('action')) {
+        const actionGames = gamesData.filter(g => g.category === 'action').slice(0, 4);
+        const actionList = actionGames.map(g => `${g.title} (${g.price}ლ)`).join(', ');
+        return "⚔️ Action Games we have:\n" + actionList + "\n\nThese are intense and thrilling! Interested in any?";
+    }
+    
+    if (message.includes('rpg')) {
+        const rpgGames = gamesData.filter(g => g.category === 'rpg').slice(0, 4);
+        const rpgList = rpgGames.map(g => `${g.title} (${g.price}ლ)`).join(', ');
+        return "🐉 RPG Games we have:\n" + rpgList + "\n\nEpic stories and adventures await!";
+    }
+    
+    // Contact options
+    if (message.includes('contact') || message.includes('instagram') || message.includes('message')) {
+        return "📱 Happy to help! Connect with us on Instagram @game.velo for:\n• Questions\n• Support\n• Feedback\n• Special requests\n\nWe respond quickly!";
+    }
+    
+    // Greeting
+    if (message.includes('hi') || message.includes('hello') || message.includes('hey')) {
+        return "👋 Hey there! Welcome to GameVelo! 🎮 I'm your AI assistant and I'm excited to help you find amazing PS5 games at great prices. You can ask me about:\n• Specific games & their prices\n• Recommendations\n• Current deals\n• Game genres\n\nWhat would you like to know?";
+    }
+    
+    // Cart/checkout
+    if (message.includes('cart') || message.includes('checkout') || message.includes('buy')) {
+        return "🛒 It's easy to shop with us!\n1. Click 'Add to Cart' on any game\n2. Click the cart icon to review your order\n3. Click 'Checkout' to proceed\n\nReady to buy something?";
+    }
+    
+    // Rating/review
+    if (message.includes('rating') || message.includes('review') || message.includes('quality')) {
+        return "⭐ All our games are carefully selected for quality!\n• Most have 5★ ratings\n• Based on real player feedback\n• Only premium titles\n\nBrowse our collection to see the ratings!";
+    }
+    
+    // How much / Total price
+    if (message.includes('how much') || message.includes('total') || message.includes('cost')) {
+        return "💵 The price depends on which games you're interested in!\nOur prices range from " + Math.min(...gamesData.map(g => g.price)) + "ლ to " + Math.max(...gamesData.map(g => g.price)) + "ლ.\n\nWhat games are you looking at?";
+    }
+    
+    // Default response
+    return "🎯 Great question! I'm here to help you find games, check prices, get deals, and make purchases. Try asking me about:\n• Game recommendations\n• Current discounts\n• Prices\n• Specific genres\n• Or just chat!\n\nWhat can I help with?";
+}
+
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Allow Enter key to send message
+document.addEventListener('DOMContentLoaded', function() {
+    const aiInput = document.getElementById('aiInput');
+    if (aiInput) {
+        aiInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendAIMessage();
+            }
+        });
+    }
+});

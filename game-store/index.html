@@ -40,116 +40,59 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <!-- Modern Gaming Robot SVG Background -->
-        <svg class="hero-logo" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+        <!-- Elegant Black/Yellow Gaming Controller Logo -->
+        <svg class="hero-logo" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
             <defs>
-                <linearGradient id="heroLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#c9a961;stop-opacity:0.3" />
-                    <stop offset="100%" style="stop-color:#d4b896;stop-opacity:0.15" />
+                <linearGradient id="controllerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1a1a1a" />
+                    <stop offset="50%" style="stop-color:#2d2d2d" />
+                    <stop offset="100%" style="stop-color:#0a0a0a" />
                 </linearGradient>
-                <linearGradient id="robotMetal" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#d4b896" />
-                    <stop offset="50%" style="stop-color:#8b7355" />
-                    <stop offset="100%" style="stop-color:#6b5344" />
+                <linearGradient id="yellowAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#FFD700" />
+                    <stop offset="100%" style="stop-color:#FFC700" />
                 </linearGradient>
-                <filter id="glow">
+                <filter id="premiumGlow">
                     <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
                     <feMerge>
                         <feMergeNode in="coloredBlur"/>
                         <feMergeNode in="SourceGraphic"/>
                     </feMerge>
                 </filter>
+                <filter id="premiumShadow">
+                    <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.6"/>
+                </filter>
             </defs>
-            
-            <!-- Background Aura -->
-            <circle cx="200" cy="250" r="200" fill="url(#heroLogoGradient)" opacity="0.6"/>
-            
-            <!-- Robot Head - Metallic -->
-            <rect x="140" y="80" width="120" height="130" rx="20" fill="url(#robotMetal)" filter="url(#glow)"/>
-            <!-- Head Shine -->
-            <rect x="145" y="85" width="110" height="50" rx="15" fill="#e8d4b8" opacity="0.4"/>
-            
-            <!-- Left Eye - LED Blue with Glow -->
-            <circle cx="170" cy="130" r="18" fill="#4a90e2" filter="url(#glow)"/>
-            <circle cx="170" cy="130" r="12" fill="#6bb6ff" filter="url(#glow)"/>
-            <circle cx="168" cy="128" r="6" fill="white" opacity="0.8"/>
-            
-            <!-- Right Eye - LED Blue with Glow -->
-            <circle cx="230" cy="130" r="18" fill="#4a90e2" filter="url(#glow)"/>
-            <circle cx="230" cy="130" r="12" fill="#6bb6ff" filter="url(#glow)"/>
-            <circle cx="228" cy="128" r="6" fill="white" opacity="0.8"/>
-            
-            <!-- Mouth - Futuristic Smile -->
-            <path d="M 175 170 Q 200 180 225 170" stroke="#c9a961" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <circle cx="175" cy="170" r="2" fill="#c9a961"/>
-            <circle cx="225" cy="170" r="2" fill="#c9a961"/>
-            
-            <!-- Antenna Left -->
-            <rect x="145" y="50" width="8" height="40" rx="4" fill="url(#robotMetal)" transform="rotate(-15 149 90)"/>
-            <circle cx="148" cy="45" r="6" fill="#c9a961" filter="url(#glow)"/>
-            
-            <!-- Antenna Right -->
-            <rect x="247" y="50" width="8" height="40" rx="4" fill="url(#robotMetal)" transform="rotate(15 251 90)"/>
-            <circle cx="252" cy="45" r="6" fill="#c9a961" filter="url(#glow)"/>
-            
-            <!-- Robot Body - Torso -->
-            <rect x="120" y="210" width="160" height="140" rx="25" fill="url(#robotMetal)" filter="url(#glow)"/>
-            <!-- Body Panel Lines -->
-            <line x1="130" y1="210" x2="130" y2="350" stroke="#6b5344" stroke-width="2" opacity="0.5"/>
-            <line x1="270" y1="210" x2="270" y2="350" stroke="#6b5344" stroke-width="2" opacity="0.5"/>
-            <line x1="200" y1="220" x2="200" y2="340" stroke="#c9a961" stroke-width="1.5" opacity="0.6"/>
-            
-            <!-- Chest LED Display -->
-            <rect x="160" y="250" width="80" height="50" rx="8" fill="#1a1a2e" stroke="#c9a961" stroke-width="2"/>
-            <!-- LED Grid -->
-            <circle cx="170" cy="260" r="3" fill="#00ff00"/>
-            <circle cx="185" cy="260" r="3" fill="#00ff00"/>
-            <circle cx="200" cy="260" r="3" fill="#00ff00"/>
-            <circle cx="215" cy="260" r="3" fill="#00ff00"/>
-            <circle cx="230" cy="260" r="3" fill="#00ff00"/>
-            <circle cx="170" cy="275" r="3" fill="#ffa500"/>
-            <circle cx="185" cy="275" r="3" fill="#ffa500"/>
-            <circle cx="200" cy="275" r="3" fill="#ffa500"/>
-            <circle cx="215" cy="275" r="3" fill="#ffa500"/>
-            <circle cx="230" cy="275" r="3" fill="#ffa500"/>
-            <circle cx="170" cy="290" r="3" fill="#ff0000"/>
-            <circle cx="185" cy="290" r="3" fill="#ff0000"/>
-            <circle cx="200" cy="290" r="3" fill="#ff0000"/>
-            <circle cx="215" cy="290" r="3" fill="#ff0000"/>
-            <circle cx="230" cy="290" r="3" fill="#ff0000"/>
-            
-            <!-- Left Arm -->
-            <rect x="80" y="250" width="40" height="100" rx="12" fill="url(#robotMetal)" filter="url(#glow)"/>
-            <!-- Arm Segments -->
-            <circle cx="100" cy="260" r="22" fill="#b8860b" opacity="0.6"/>
-            <circle cx="100" cy="310" r="22" fill="#b8860b" opacity="0.6"/>
-            <!-- Hand -->
-            <circle cx="100" cy="360" r="16" fill="#d4b896" filter="url(#glow)"/>
-            <line x1="92" y1="350" x2="85" y2="370" stroke="#c9a961" stroke-width="2" stroke-linecap="round"/>
-            <line x1="100" y1="350" x2="100" y2="373" stroke="#c9a961" stroke-width="2" stroke-linecap="round"/>
-            <line x1="108" y1="350" x2="115" y2="370" stroke="#c9a961" stroke-width="2" stroke-linecap="round"/>
-            
-            <!-- Right Arm -->
-            <rect x="280" y="250" width="40" height="100" rx="12" fill="url(#robotMetal)" filter="url(#glow)"/>
-            <!-- Arm Segments -->
-            <circle cx="300" cy="260" r="22" fill="#b8860b" opacity="0.6"/>
-            <circle cx="300" cy="310" r="22" fill="#b8860b" opacity="0.6"/>
-            <!-- Hand -->
-            <circle cx="300" cy="360" r="16" fill="#d4b896" filter="url(#glow)"/>
-            <line x1="292" y1="350" x2="285" y2="370" stroke="#c9a961" stroke-width="2" stroke-linecap="round"/>
-            <line x1="300" y1="350" x2="300" y2="373" stroke="#c9a961" stroke-width="2" stroke-linecap="round"/>
-            <line x1="308" y1="350" x2="315" y2="370" stroke="#c9a961" stroke-width="2" stroke-linecap="round"/>
-            
-            <!-- Legs -->
-            <rect x="150" y="350" width="35" height="100" rx="12" fill="url(#robotMetal)" filter="url(#glow)"/>
-            <rect x="215" y="350" width="35" height="100" rx="12" fill="url(#robotMetal)" filter="url(#glow)"/>
-            <!-- Feet -->
-            <rect x="145" y="450" width="45" height="25" rx="8" fill="#8b7355"/>
-            <rect x="210" y="450" width="45" height="25" rx="8" fill="#8b7355"/>
-            
-            <!-- Power Core in Center -->
-            <circle cx="200" cy="280" r="8" fill="#ff6b00" filter="url(#glow)"/>
-            <circle cx="200" cy="280" r="5" fill="#ffa500" filter="url(#glow)"/>
+            <!-- Main Controller Body -->
+            <rect x="40" y="80" width="320" height="200" rx="40" fill="url(#controllerGradient)" filter="url(#premiumShadow)" stroke="#FFD700" stroke-width="1.5" opacity="0.3"/>
+            <!-- Left D-Pad Section -->
+            <g>
+                <circle cx="100" cy="150" r="45" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.5"/>
+                <rect x="90" y="120" width="20" height="60" rx="10" fill="url(#yellowAccent)" filter="url(#premiumGlow)" opacity="0.8"/>
+                <rect x="70" y="140" width="60" height="20" rx="10" fill="url(#yellowAccent)" filter="url(#premiumGlow)" opacity="0.8"/>
+                <circle cx="100" cy="150" r="12" fill="#FFD700" filter="url(#premiumGlow)"/>
+            </g>
+            <!-- Right Analog Sticks -->
+            <g>
+                <circle cx="300" cy="130" r="30" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.5"/>
+                <circle cx="300" cy="130" r="22" fill="#1a1a1a" stroke="#FFD700" stroke-width="1.5"/>
+                <circle cx="300" cy="130" r="16" fill="url(#yellowAccent)" filter="url(#premiumGlow)" opacity="0.9"/>
+                <circle cx="300" cy="190" r="30" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.5"/>
+                <circle cx="300" cy="190" r="22" fill="#1a1a1a" stroke="#FFD700" stroke-width="1.5"/>
+                <circle cx="300" cy="190" r="16" fill="url(#yellowAccent)" filter="url(#premiumGlow)" opacity="0.9"/>
+            </g>
+            <!-- Center Button Area -->
+            <g>
+                <rect x="155" y="160" width="90" height="40" rx="15" fill="#1a1a1a" stroke="#FFD700" stroke-width="1.5" opacity="0.6"/>
+                <circle cx="175" cy="180" r="6" fill="#FFD700" filter="url(#premiumGlow)" opacity="0.9"/>
+                <circle cx="200" cy="175" r="6" fill="#FFD700" filter="url(#premiumGlow)" opacity="0.9"/>
+                <circle cx="225" cy="180" r="6" fill="#FFD700" filter="url(#premiumGlow)" opacity="0.9"/>
+                <circle cx="200" cy="190" r="8" fill="url(#yellowAccent)" filter="url(#premiumGlow)"/>
+            </g>
+            <!-- Decorative Line -->
+            <path d="M 50 250 L 350 250" stroke="#FFD700" stroke-width="2" opacity="0.3" stroke-dasharray="5,5"/>
+            <!-- Gaming Text Mark -->
+            <text x="200" y="310" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFD700" text-anchor="middle" filter="url(#premiumGlow)" opacity="0.8">GAMEVELO</text>
         </svg>
 
         <div class="hero-content">
@@ -243,6 +186,19 @@
         </div>
     </div>
 
+    <!-- Flash Deals Section -->
+    <section class="flash-deals-section">
+        <div class="container">
+            <div class="flash-deals-header">
+                <h2>🔥 Hottest Deals</h2>
+                <p>Limited time offers on our best games</p>
+            </div>
+            <div class="flash-deals-carousel" id="flashDealsCarousel">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
@@ -273,12 +229,59 @@
         </div>
     </section>
 
-    <!-- Contact Section - Disabled -->
+    <!-- AI Assistant Section -->
+    <section id="ai-assistant" class="ai-section">
+        <div class="container">
+            <h2 class="ai-title">🤖 Gamevelo AI Assistant</h2>
+            <p class="ai-subtitle">Need help? Our AI is here to assist you instantly</p>
+            <div class="ai-container">
+                <div class="ai-chat-box">
+                    <div class="ai-messages" id="aiMessages">
+                        <div class="ai-message bot-message">
+                            <span class="message-icon">🤖</span>
+                            <p>Hi! I'm Gamevelo AI. Ask me anything about our games, pricing, features, or recommendations!</p>
+                        </div>
+                    </div>
+                    <div class="ai-input-box">
+                        <input type="text" id="aiInput" class="ai-input" placeholder="Ask me anything about gaming..."/>
+                        <button class="ai-send-btn" onclick="sendAIMessage()">Send</button>
+                    </div>
+                </div>
+                <div class="ai-info">
+                    <h3>How AI Can Help:</h3>
+                    <ul class="ai-list">
+                        <li>🎮 <strong>Game Recommendations</strong> - Find games that match your taste</li>
+                        <li>💰 <strong>Pricing & Discounts</strong> - Get info on current deals and pricing</li>
+                        <li>📦 <strong>Account Support</strong> - Help with delivery and account questions</li>
+                        <li>🔍 <strong>Search & Filter</strong> - Find games by genre, price, or rating</li>
+                        <li>❓ <strong>General Questions</strong> - Ask anything about Gamevelo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Instagram Link -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Get In Touch</h2>
-            <div class="contact-form-disabled">
-                <p class="disabled-message">✨ Contact form is currently unavailable</p>
+            <h2>📱 Get In Touch</h2>
+            <div class="contact-content">
+                <p class="contact-description">Connect with us on Instagram for the latest updates and support</p>
+                <a href="https://www.instagram.com/game.velo/" target="_blank" class="contact-instagram-link">
+                    <svg class="instagram-btn-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="instagramBtnGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#FD5949;stop-opacity:1" />
+                                <stop offset="5%" style="stop-color:#D6249F;stop-opacity:1" />
+                                <stop offset="45%" style="stop-color:#285AEB;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#instagramBtnGrad)"/>
+                        <circle cx="12" cy="12" r="3.5" fill="white"/>
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="white"/>
+                    </svg>
+                    <span>Message us on Instagram @game.velo</span>
+                </a>
             </div>
         </div>
     </section>
