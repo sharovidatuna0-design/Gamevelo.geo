@@ -299,23 +299,98 @@ function filterGames(category) {
     event.target.classList.add('active');
 }
 
-// Add to Cart
+// Add to Cart - Show Purchase Modal
 function addToCart(gameId) {
     const game = gamesData.find(g => g.id === gameId);
-    const existingItem = cart.find(item => item.id === gameId);
+    showPurchaseModal(game);
+}
 
-    if (existingItem) {
-        existingItem.quantity++;
-    } else {
-        cart.push({
-            ...game,
-            quantity: 1
-        });
+// Show Purchase Modal
+function showPurchaseModal(game) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('purchaseModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'purchaseModal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        `;
+        document.body.appendChild(modal);
     }
 
-    saveCartToStorage();
-    updateCartCount();
-    showNotification(`${game.title} added to cart!`);
+    // Create modal content
+    const content = `
+        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 15px; padding: 40px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); border: 2px solid #FFD700; text-align: center;">
+            <button onclick="closePurchaseModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: #FFD700; font-size: 28px; cursor: pointer;">×</button>
+            
+            <div style="margin-bottom: 20px;">
+                <img src="${game.image}" alt="${game.title}" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 10px; border: 2px solid #FFD700;">
+            </div>
+            
+            <h2 style="color: #FFD700; margin-bottom: 10px; font-size: 28px;">${game.title}</h2>
+            <p style="color: #4facfe; font-size: 24px; margin-bottom: 20px; font-weight: bold;">${game.price}ლ</p>
+            <p style="color: #ccc; margin-bottom: 30px; font-size: 14px; line-height: 1.6;">${game.description}</p>
+            
+            <div style="background: rgba(255, 215, 0, 0.1); border-left: 4px solid #FFD700; padding: 15px; margin: 20px 0; border-radius: 5px; text-align: left;">
+                <p style="color: #FFD700; margin: 0; font-weight: bold;">📱 How to Purchase</p>
+                <p style="color: #ccc; margin: 10px 0 0 0; font-size: 13px;">Contact us on Instagram @game.velo to complete your purchase. Our team will assist you with payment and delivery.</p>
+            </div>
+            
+            <div style="display: flex; gap: 10px; margin-top: 25px;">
+                <a href="https://www.instagram.com/game.velo/" target="_blank" style="flex: 1; background: linear-gradient(135deg, #FD5949 0%, #D6249F 100%); color: white; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; text-decoration: none; font-size: 14px; transition: transform 0.2s;">
+                    📲 Message on Instagram
+                </a>
+                <button onclick="addGameToWishlist(${game.id}); closePurchaseModal();" style="flex: 1; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 12px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px; transition: transform 0.2s;">
+                    ❤️ Add to Wishlist
+                </button>
+            </div>
+            
+            <button onclick="closePurchaseModal()" style="width: 100%; margin-top: 10px; background: rgba(255, 215, 0, 0.2); color: #FFD700; padding: 10px; border: 1px solid #FFD700; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                Close
+            </button>
+        </div>
+    `;
+    
+    modal.innerHTML = content;
+    modal.style.display = 'flex';
+    
+    // Close modal on background click
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closePurchaseModal();
+        }
+    });
+}
+
+// Close Purchase Modal
+function closePurchaseModal() {
+    const modal = document.getElementById('purchaseModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Add to Wishlist
+function addGameToWishlist(gameId) {
+    const game = gamesData.find(g => g.id === gameId);
+    let wishlist = JSON.parse(localStorage.getItem('gameWishlist') || '[]');
+    
+    if (!wishlist.find(item => item.id === gameId)) {
+        wishlist.push(game);
+        localStorage.setItem('gameWishlist', JSON.stringify(wishlist));
+        showNotification(`${game.title} added to wishlist! 💕`);
+    } else {
+        showNotification(`${game.title} is already in your wishlist!`);
+    }
 }
 
 // Update Cart Count
