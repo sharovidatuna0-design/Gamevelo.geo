@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamevelo - Premium PS5 Gaming Account</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- Mysterious Robot Background -->
+        <div class="robot-background" id="robot">
+            <div class="robot-head">
+                <div class="robot-eye left-eye"></div>
+                <div class="robot-eye right-eye"></div>
+                <div class="robot-mouth"></div>
+            </div>
+            <div class="robot-body"></div>
+            <div class="robot-arm left-arm"></div>
+            <div class="robot-arm right-arm"></div>
+        </div>
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">🎮</span>
+                <h1>Gamevelo</h1>
+            </div>
+            <nav class="nav">
+                <a href="welcome.html" class="nav-link">Welcome</a>
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#games" class="nav-link">Games</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <a href="https://www.instagram.com/game.velo/" target="_blank" class="instagram-link">
+                <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#instagramGradient)"/><defs><linearGradient id="instagramGradient" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#FD5949;stop-opacity:1" /><stop offset="5%" style="stop-color:#D6249F;stop-opacity:1" /><stop offset="45%" style="stop-color:#285AEB;stop-opacity:1" /></linearGradient></defs><circle cx="12" cy="12" r="3.5" fill="white"/><circle cx="17.5" cy="6.5" r="1.5" fill="white"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Gamevelo Logo SVG Background -->
+        <svg class="hero-logo" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="heroLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0.25" />
+                    <stop offset="100%" style="stop-color:#79c0ff;stop-opacity:0.1" />
+                </linearGradient>
+            </defs>
+            <circle cx="200" cy="200" r="180" fill="url(#heroLogoGradient)" stroke="#58a6ff" stroke-width="2" opacity="0.4"/>
+            <circle cx="120" cy="180" r="35" fill="none" stroke="#58a6ff" stroke-width="3" opacity="0.5"/>
+            <circle cx="100" cy="160" r="8" fill="#58a6ff" opacity="0.5"/>
+            <circle cx="140" cy="160" r="8" fill="#58a6ff" opacity="0.5"/>
+            <circle cx="120" cy="140" r="8" fill="#58a6ff" opacity="0.5"/>
+            <circle cx="120" cy="200" r="8" fill="#58a6ff" opacity="0.5"/>
+            <rect x="155" y="190" width="90" height="20" rx="10" fill="none" stroke="#58a6ff" stroke-width="2" opacity="0.5"/>
+            <circle cx="280" cy="165" r="20" fill="none" stroke="#58a6ff" stroke-width="2" opacity="0.5"/>
+            <circle cx="280" cy="165" r="12" fill="#58a6ff" opacity="0.4"/>
+            <circle cx="280" cy="225" r="20" fill="none" stroke="#58a6ff" stroke-width="2" opacity="0.5"/>
+            <circle cx="280" cy="225" r="12" fill="#58a6ff" opacity="0.4"/>
+        </svg>
+
+        <div class="hero-content">
+            <div class="hero-title-container">
+                <h2 class="hero-title">GAMEVELO</h2>
+                <p class="hero-tagline">PS5 GAMING REVOLUTION</p>
+            </div>
+            <p class="hero-subtitle">Experience Next-Gen Gaming</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary btn-large" onclick="document.getElementById('games').scrollIntoView({behavior: 'smooth'})">BROWSE GAMES</button>
+                <a href="welcome.html" class="btn btn-secondary btn-large">DISCOVER MORE</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-text">Games</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">50%</span>
+                    <span class="stat-text">OFF</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-text">Support</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- Featured Games Section -->
+    <section id="featured" class="featured">
+        <div class="container">
+            <h2>Featured Masterpieces</h2>
+            <div class="featured-grid" id="featuredGames"></div>
+        </div>
+    </section>
+
+    <!-- All Games Section -->
+    <section id="games" class="games-section">
+        <div class="container">
+            <!-- Section Logo -->
+            <div class="section-logo-container">
+                <svg class="section-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="sectionLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:0.5" />
+                            <stop offset="100%" style="stop-color:#79c0ff;stop-opacity:0.3" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="100" cy="100" r="90" fill="url(#sectionLogoGradient)" stroke="#58a6ff" stroke-width="2"/>
+                    <circle cx="70" cy="85" r="18" fill="none" stroke="#58a6ff" stroke-width="2"/>
+                    <circle cx="60" cy="75" r="4" fill="#58a6ff"/>
+                    <circle cx="80" cy="75" r="4" fill="#58a6ff"/>
+                    <circle cx="70" cy="65" r="4" fill="#58a6ff"/>
+                    <circle cx="70" cy="100" r="4" fill="#58a6ff"/>
+                    <rect x="88" y="92" width="45" height="10" rx="5" fill="none" stroke="#58a6ff" stroke-width="1.5"/>
+                    <circle cx="140" cy="80" r="10" fill="none" stroke="#58a6ff" stroke-width="1.5"/>
+                    <circle cx="140" cy="80" r="6" fill="#58a6ff" opacity="0.6"/>
+                    <circle cx="140" cy="115" r="10" fill="none" stroke="#58a6ff" stroke-width="1.5"/>
+                    <circle cx="140" cy="115" r="6" fill="#58a6ff" opacity="0.6"/>
+                </svg>
+            </div>
+            
+            <h2>Our Game Library</h2>
+            
+            <!-- Filters -->
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterGames('all')">All Games</button>
+                <button class="filter-btn" onclick="filterGames('action')">Action</button>
+                <button class="filter-btn" onclick="filterGames('adventure')">Adventure</button>
+                <button class="filter-btn" onclick="filterGames('rpg')">RPG</button>
+            </div>
+
+            <!-- Games Grid -->
+            <div class="games-grid" id="gamesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Shopping Cart</h2>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-summary">
+                <h3>Total: <span id="cartTotal">0ლ</span></h3>
+                <button class="btn btn-success" onclick="checkout()">Checkout</button>
+                <button class="btn btn-secondary" onclick="closeCart()">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Gamevelo</h2>
+            <p>Gamevelo is your premium destination for PS5 gaming. We curate the finest AAA titles and exclusive experiences from around the world. Our collection features award-winning games that define next-generation gaming excellence.</p>
+            <div class="about-features">
+                <div class="feature">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Fast Downloads</h3>
+                    <p>Optimized for quick installations</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Secure</h3>
+                    <p>Safe and verified games</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎮</span>
+                    <h3>PS5 Exclusive</h3>
+                    <p>Play on next-gen console</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">💎</span>
+                    <h3>Premium Quality</h3>
+                    <p>Hand-picked masterpieces</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Disabled -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-form-disabled">
+                <p class="disabled-message">✨ Contact form is currently unavailable</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Gamevelo. Premium PS5 Gaming. All Rights Reserved.</p>
+        <p>Follow us on <span class="social-icons">💻 🎮 📱</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

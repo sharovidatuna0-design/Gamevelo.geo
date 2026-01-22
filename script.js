@@ -1,323 +1,201 @@
-// Games Database with Real Famous PS5 Games
-const gamesData = [
+// Coffee menu data
+const menuItems = [
     {
         id: 1,
-        title: "Arc Raider",
-        category: "adventure",
-        price: 99.99,
-        originalPrice: 180,
-        discount: 45,
-        rating: "★★★★★",
-        description: "Join the thrilling adventure of Arc Raider as you explore mysterious worlds and uncover hidden secrets.",
-        image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1808500/04baafaf64a5aa5f46ecda5d71889a4848dc0628/header.jpg?t=1764755475"
+        name: "Espresso",
+        price: 3.50,
+        description: "Strong and bold shot of pure espresso",
+        emoji: "☕"
     },
     {
         id: 2,
-        title: "Elden Ring",
-        category: "rpg",
-        price: 89.99,
-        originalPrice: 162,
-        discount: 20,
-        rating: "★★★★★",
-        description: "Rise, Tarnished, and let grace guide you in this vast and dangerous realm.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1245620/capsule_616x353.jpg"
+        name: "Cappuccino",
+        price: 4.50,
+        description: "Espresso with steamed milk and foam",
+        emoji: "🥛"
     },
     {
         id: 3,
-        title: "God of War Ragnarök",
-        category: "adventure",
-        price: 68.99,
-        originalPrice: 96,
-        discount: 28,
-        rating: "★★★★★",
-        description: "Experience the epic conclusion of Kratos' story in this stunning Norse adventure.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/2322010/capsule_616x353.jpg"
+        name: "Latte",
+        price: 4.75,
+        description: "Smooth espresso with lots of steamed milk",
+        emoji: "☕"
     },
     {
         id: 4,
-        title: "Grand Theft Auto V",
-        category: "action",
-        price: 54,
-        originalPrice: 81,
-        discount: 33,
-        rating: "★★★★★",
-        description: "The most successful entertainment product of all time. Experience the ultimate sandbox.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/271590/capsule_616x353.jpg"
+        name: "Mocha",
+        price: 5.25,
+        description: "Espresso, steamed milk, and chocolate",
+        emoji: "🍫"
     },
     {
         id: 5,
-        title: "The Witcher 3: Wild Hunt",
-        category: "rpg",
-        price: 76,
-        originalPrice: 108,
-        discount: 30,
-        rating: "★★★★★",
-        description: "Embark on a monster-slaying adventure in this richly detailed fantasy world.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/292030/capsule_616x353.jpg"
+        name: "Americano",
+        price: 3.75,
+        description: "Espresso shots with hot water",
+        emoji: "💧"
     },
     {
         id: 6,
-        title: "Sekiro: Shadows Die Twice",
-        category: "action",
-        price: 75,
-        originalPrice: 108,
-        discount: 30,
-        rating: "★★★★★",
-        description: "A brutal action RPG where you become a master ninja seeking vengeance in Sengoku Japan.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/814380/capsule_616x353.jpg"
+        name: "Macchiato",
+        price: 4.25,
+        description: "Espresso marked with a small amount of milk",
+        emoji: "☕"
     },
     {
         id: 7,
-        title: "Dark Souls III",
-        category: "action",
-        price: 55,
-        originalPrice: 108,
-        discount: 49,
-        rating: "★★★★★",
-        description: "Challenge yourself in an epic dark fantasy adventure of unparalleled depth.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/374320/capsule_616x353.jpg"
+        name: "Flat White",
+        price: 5.00,
+        description: "Espresso with microfoam steamed milk",
+        emoji: "🤍"
     },
     {
         id: 8,
-        title: "Cyberpunk 2077",
-        category: "rpg",
-        price: 39.99,
-        originalPrice: 57,
-        discount: 30,
-        rating: "★★★★☆",
-        description: "Become a legendary mercenary and make your mark in Night City.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1091500/capsule_616x353.jpg"
-    },
-    {
-        id: 9,
-        title: "Skyrim",
-        category: "rpg",
-        price: 20,
-        originalPrice: 30,
-        discount: 33,
-        rating: "★★★★★",
-        description: "Experience the legendary fantasy adventure that defined a generation.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/72850/capsule_616x353.jpg"
-    },
-    {
-        id: 10,
-        title: "Fallout 4",
-        category: "rpg",
-        price: 30,
-        originalPrice: 42,
-        discount: 28,
-        rating: "★★★★☆",
-        description: "Emerge from the vault and explore a retro-futuristic wasteland.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/377160/capsule_616x353.jpg"
-    },
-    {
-        id: 11,
-        title: "Monster Hunter Rise",
-        category: "action",
-        price: 25,
-        originalPrice: 35,
-        discount: 29,
-        rating: "★★★★★",
-        description: "Lead the charge against fearsome monsters with enhanced gameplay and epic hunts.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1446780/capsule_616x353.jpg"
-    },
-    {
-        id: 12,
-        title: "Black Myth: Wukong",
-        category: "action",
-        price: 108,
-        originalPrice: 162,
-        discount: 33,
-        rating: "★★★★★",
-        description: "An epic action-adventure based on the classic Chinese tale Journey to the West.",
-        image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg?t=1760601605"
-    },
-    {
-        id: 13,
-        title: "Hollow Knight",
-        category: "adventure",
-        price: 29,
-        originalPrice: 41,
-        discount: 29,
-        rating: "★★★★★",
-        description: "Descend into a dark, haunting kingdom filled with secrets and challenges.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/367520/capsule_616x353.jpg"
-    },
-    {
-        id: 14,
-        title: "Hades",
-        category: "adventure",
-        price: 48,
-        originalPrice: 68,
-        discount: 29,
-        rating: "★★★★★",
-        description: "Escape the underworld in this award-winning roguelike dungeon crawler.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1145360/capsule_616x353.jpg"
-    },
-    {
-        id: 15,
-        title: "Dishonored 2",
-        category: "adventure",
-        price: 75,
-        originalPrice: 108,
-        discount: 30,
-        rating: "★★★★★",
-        description: "Play as either Corvo or Emily in this stealth masterpiece.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/403640/capsule_616x353.jpg"
-    },
-    {
-        id: 16,
-        title: "Death Stranding",
-        category: "adventure",
-        price: 95,
-        originalPrice: 135,
-        discount: 29,
-        rating: "★★★★☆",
-        description: "Connect a fragmented America and experience a unique cinematic adventure.",
-        image: "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1190460/capsule_616x353.jpg"
+        name: "Cold Brew",
+        price: 4.00,
+        description: "Smooth and refreshing cold coffee",
+        emoji: "🧊"
     }
 ];
 
-// Shopping Cart
+// Shopping cart
 let cart = [];
-let currentFilter = 'all';
 
-// Initialize App
+// Load menu on page load
 document.addEventListener('DOMContentLoaded', function() {
-    loadGames();
-    setupNavigation();
-    loadCartFromStorage();
-    updateCartCount();
+    loadMenu();
+    loadCart();
 });
 
-// Load Games
-function loadGames() {
-    displayFeaturedGames();
-    displayAllGames();
-}
+// Load menu items
+function loadMenu() {
+    const menuGrid = document.getElementById('menuGrid');
+    menuGrid.innerHTML = '';
 
-// Display Featured Games
-function displayFeaturedGames() {
-    const featured = gamesData.slice(0, 4);
-    const featuredGrid = document.getElementById('featuredGames');
-    
-    featuredGrid.innerHTML = featured.map(game => createGameCardHTML(game)).join('');
-}
-
-// Display All Games
-function displayAllGames(filter = 'all') {
-    const filtered = filter === 'all' ? gamesData : gamesData.filter(game => game.category === filter);
-    const gamesGrid = document.getElementById('gamesGrid');
-    
-    gamesGrid.innerHTML = filtered.map(game => createGameCardHTML(game)).join('');
-}
-
-// Create Game Card HTML
-function createGameCardHTML(game) {
-    const priceDisplay = game.originalPrice ? 
-        `<div class="game-price">${game.price}ლ <span class="original-price">${game.originalPrice}ლ</span> <span class="discount-badge">-${game.discount}%</span></div>` :
-        `<div class="game-price">${game.price === 0 ? 'FREE' : game.price + 'ლ'}</div>`;
-    
-    return `
-        <div class="game-card">
-            <div class="game-image">
-                <img src="${game.image}" alt="${game.title}" onerror="this.src='https://via.placeholder.com/300x200?text=${game.title}'">
-            </div>
-            <div class="game-content">
-                <div class="game-title">${game.title}</div>
-                <span class="game-category">${game.category.toUpperCase()}</span>
-                <p class="game-description">${game.description}</p>
-                <div class="game-rating">${game.rating}</div>
-                ${priceDisplay}
-                <div class="game-footer">
-                    <button class="btn-buy" onclick="addToCart(${game.id})">Add to Cart</button>
+    menuItems.forEach(item => {
+        const menuItemDiv = document.createElement('div');
+        menuItemDiv.className = 'menu-item';
+        menuItemDiv.innerHTML = `
+            <div class="menu-item-image">${item.emoji}</div>
+            <div class="menu-item-content">
+                <h3>${item.name}</h3>
+                <p class="menu-item-price">$${item.price.toFixed(2)}</p>
+                <p class="menu-item-description">${item.description}</p>
+                <div class="menu-item-controls">
+                    <input type="number" id="qty-${item.id}" min="1" value="1" class="quantity-input">
+                    <button class="btn btn-primary" onclick="addToCart(${item.id})">Add</button>
                 </div>
             </div>
-        </div>
-    `;
-}
-
-// Filter Games
-function filterGames(category) {
-    currentFilter = category;
-    displayAllGames(category);
-
-    // Update filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active');
+        `;
+        menuGrid.appendChild(menuItemDiv);
     });
-    event.target.classList.add('active');
 }
 
-// Add to Cart
-function addToCart(gameId) {
-    const game = gamesData.find(g => g.id === gameId);
-    const existingItem = cart.find(item => item.id === gameId);
+// Add item to cart
+function addToCart(itemId) {
+    const quantityInput = document.getElementById(`qty-${itemId}`);
+    const quantity = parseInt(quantityInput.value) || 1;
+    const item = menuItems.find(i => i.id === itemId);
 
+    if (!item) return;
+
+    const existingItem = cart.find(c => c.id === itemId);
     if (existingItem) {
-        existingItem.quantity++;
+        existingItem.quantity += quantity;
     } else {
         cart.push({
-            ...game,
-            quantity: 1
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: quantity
         });
     }
 
-    saveCartToStorage();
-    updateCartCount();
-    showNotification(`${game.title} added to cart!`);
+    saveCart();
+    loadCart();
+    quantityInput.value = 1;
+    alert(`${item.name} added to cart!`);
 }
 
-// Update Cart Count
-function updateCartCount() {
-    const count = cart.reduce((total, item) => total + item.quantity, 0);
-    document.getElementById('cartCount').textContent = count;
-}
+// Load cart display
+function loadCart() {
+    const cartBody = document.getElementById('cartBody');
+    cartBody.innerHTML = '';
 
-// Update Cart Display
-function updateCartDisplay() {
-    const cartItems = document.getElementById('cartItems');
-    
+    let total = 0;
+
     if (cart.length === 0) {
-        cartItems.innerHTML = '<p style="text-align: center; padding: 20px;">Your cart is empty</p>';
+        cartBody.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px;">Your cart is empty</td></tr>';
     } else {
-        cartItems.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <div class="cart-item-name">
-                    <strong>${item.title}</strong>
-                    <br>
-                    <small>Quantity: ${item.quantity}</small>
-                </div>
-                <div class="cart-item-price">${(item.price * item.quantity).toFixed(0)}ლ</div>
-                <button class="cart-item-remove" onclick="removeFromCart(${item.id})">Remove</button>
-            </div>
-        `).join('');
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td>
+                    <input type="number" min="1" value="${item.quantity}" 
+                           onchange="updateQuantity(${item.id}, this.value)" 
+                           style="width: 60px; padding: 5px; border: 1px solid #ddd; border-radius: 4px;">
+                </td>
+                <td>$${itemTotal.toFixed(2)}</td>
+                <td><button class="btn btn-danger" onclick="removeFromCart(${item.id})">Remove</button></td>
+            `;
+            cartBody.appendChild(row);
+        });
     }
 
-    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    document.getElementById('cartTotal').textContent = total.toFixed(0) + 'ლ';
+    document.getElementById('totalPrice').textContent = total.toFixed(2);
 }
 
-// Remove from Cart
-function removeFromCart(gameId) {
-    cart = cart.filter(item => item.id !== gameId);
-    saveCartToStorage();
-    updateCartCount();
-    updateCartDisplay();
+// Update quantity
+function updateQuantity(itemId, newQuantity) {
+    const quantity = parseInt(newQuantity);
+    if (quantity < 1) {
+        removeFromCart(itemId);
+        return;
+    }
+
+    const item = cart.find(c => c.id === itemId);
+    if (item) {
+        item.quantity = quantity;
+        saveCart();
+        loadCart();
+    }
 }
 
-// Open Cart Modal
-function openCart() {
-    updateCartDisplay();
-    document.getElementById('cartModal').classList.add('show');
+// Remove from cart
+function removeFromCart(itemId) {
+    cart = cart.filter(item => item.id !== itemId);
+    saveCart();
+    loadCart();
 }
 
-// Close Cart Modal
-function closeCart() {
-    document.getElementById('cartModal').classList.remove('show');
+// Clear cart
+function clearCart() {
+    if (confirm('Are you sure you want to clear your cart?')) {
+        cart = [];
+        saveCart();
+        loadCart();
+    }
 }
 
-// Checkout
+// Save cart to localStorage
+function saveCart() {
+    localStorage.setItem('coffeeShopCart', JSON.stringify(cart));
+}
+
+// Load cart from localStorage
+function loadCartFromStorage() {
+    const savedCart = localStorage.getItem('coffeeShopCart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+    }
+}
+
+// Checkout function
 function checkout() {
     if (cart.length === 0) {
         alert('Your cart is empty!');
@@ -326,93 +204,30 @@ function checkout() {
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
-    // Save cart and total to localStorage
-    localStorage.setItem('checkoutCart', JSON.stringify(cart));
-    localStorage.setItem('checkoutTotal', total);
-
-    // Redirect to payment page
-    window.location.href = 'payment.html';
-}
-
-// Save Cart to Storage
-function saveCartToStorage() {
-    localStorage.setItem('gameStoreCart', JSON.stringify(cart));
-}
-
-// Load Cart from Storage
-function loadCartFromStorage() {
-    const saved = localStorage.getItem('gameStoreCart');
-    if (saved) {
-        cart = JSON.parse(saved);
-    }
-}
-
-// Show Notification
-function showNotification(message) {
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        color: white;
-        padding: 15px 25px;
-        border-radius: 5px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        z-index: 10000;
-        animation: slideInRight 0.3s ease;
-    `;
-    notification.textContent = message;
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.3s ease';
-        setTimeout(() => notification.remove(), 300);
-    }, 2000);
-}
-
-// Setup Navigation
-function setupNavigation() {
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-        });
+    // Send order to Python backend
+    fetch('http://localhost:5000/api/order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            items: cart,
+            total: total
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(`Order placed successfully! Order ID: ${data.order_id}\nTotal: $${total.toFixed(2)}`);
+        cart = [];
+        saveCart();
+        loadCart();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to place order. Please try again.');
     });
-
-    document.querySelector('.cart-icon').addEventListener('click', openCart);
 }
 
-// Handle Contact Form
-function handleContactSubmit(e) {
-    e.preventDefault();
-    alert('Thank you for reaching out! We will get back to you soon.');
-    e.target.reset();
-}
-
-// Add CSS for animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
+// Load cart on page load
+loadCartFromStorage();
+loadCart();
