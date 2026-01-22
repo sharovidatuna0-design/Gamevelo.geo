@@ -1,0 +1,325 @@
+/* Payment Page Styling */
+
+.payment-section {
+    min-height: calc(100vh - 80px);
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Order Summary */
+.order-summary {
+    background: rgba(22, 27, 34, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    border-radius: 16px;
+    padding: 40px;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.order-summary h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #c9d1d9;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.order-summary h2::before {
+    content: "📦";
+    font-size: 1.3rem;
+}
+
+.order-items {
+    border-bottom: 1px solid rgba(88, 166, 255, 0.2);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+.order-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.item-name {
+    color: #c9d1d9;
+    font-size: 0.95rem;
+}
+
+.item-quantity {
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin: 0 8px;
+}
+
+.item-price {
+    color: #58a6ff;
+    font-weight: 600;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 2px solid rgba(88, 166, 255, 0.3);
+}
+
+.order-total span:first-child {
+    color: #8b949e;
+    font-size: 0.95rem;
+}
+
+.total-amount {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #79c0ff;
+}
+
+/* Payment Form */
+.payment-form-container {
+    background: rgba(22, 27, 34, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    border-radius: 16px;
+    padding: 40px;
+}
+
+.payment-form-container h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #c9d1d9;
+    margin-bottom: 10px;
+}
+
+.security-notice {
+    color: #79c0ff;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-section {
+    border: none;
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-section legend {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #79c0ff;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #c9d1d9;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(13, 17, 23, 0.5);
+    border: 1px solid rgba(88, 166, 255, 0.3);
+    border-radius: 8px;
+    color: #c9d1d9;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #58a6ff;
+    background: rgba(13, 17, 23, 0.7);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #6e7681;
+}
+
+.form-group small {
+    display: block;
+    color: #8b949e;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Checkbox */
+.form-group.checkbox {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.form-group.checkbox input {
+    width: auto;
+    margin-top: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #58a6ff;
+}
+
+.form-group.checkbox label {
+    display: inline;
+    margin: 0;
+    color: #8b949e;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Payment Buttons */
+.payment-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-large {
+    flex: 1;
+    padding: 16px 30px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+    color: #0d1117;
+    box-shadow: 0 4px 15px rgba(88, 166, 255, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(88, 166, 255, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: rgba(88, 166, 255, 0.1);
+    color: #79c0ff;
+    border: 1px solid rgba(88, 166, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(88, 166, 255, 0.2);
+    border-color: rgba(88, 166, 255, 0.5);
+}
+
+/* Security Features */
+.security-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+.security-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(88, 166, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(88, 166, 255, 0.15);
+}
+
+.security-badge span:first-child {
+    font-size: 1.2rem;
+}
+
+.security-badge span:last-child {
+    color: #8b949e;
+    font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .payment-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .order-summary {
+        position: static;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .security-features {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-buttons {
+        flex-direction: column;
+    }
+
+    .payment-form-container {
+        padding: 25px;
+    }
+
+    .order-summary {
+        padding: 25px;
+    }
+}
